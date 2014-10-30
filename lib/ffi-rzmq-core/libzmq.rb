@@ -34,7 +34,11 @@ module LibZMQ
     ZMQ_LIB_PATHS = ([inside_gem] + local_path + [
                        '/usr/local/lib', '/opt/local/lib', homebrew_path, '/usr/lib64'
     ]).compact.map{|path| "#{path}/libzmq.#{FFI::Platform::LIBSUFFIX}"}
-    ffi_lib(ZMQ_LIB_PATHS + %w{libzmq})
+	
+	# Add Windows platform specific libs
+	ZMQ_LIB_PATHS.unshift "#{inside_gem}/libzmq-#{RUBY_PLATFORM}.#{FFI::Platform::LIBSUFFIX}"
+    
+	ffi_lib(ZMQ_LIB_PATHS + %w{libzmq})
 
   rescue LoadError
     if ZMQ_LIB_PATHS.any? {|path|

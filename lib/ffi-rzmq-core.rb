@@ -1,4 +1,5 @@
 require 'ffi'
+require 'ffi-rzmq-core/win_libc_trick'
 require 'ffi-rzmq-core/libc'
 require 'ffi-rzmq-core/libzmq'
 require 'ffi-rzmq-core/structures'
