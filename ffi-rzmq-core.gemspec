@@ -4,7 +4,7 @@ require "ffi-rzmq-core/version"
 
 Gem::Specification.new do |s|
   s.name        = "ffi-rzmq-core"
-  s.version     = LibZMQ::VERSION
+  s.version     = LibZMQ::VERSION+'.2' # RB open3 patch and VS2013 dlls
   s.authors     = ["Chuck Remes"]
   s.email       = ["git@chuckremes.com"]
   s.homepage    = "http://github.com/chuckremes/ffi-rzmq-core"
